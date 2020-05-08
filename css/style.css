@@ -91,3 +91,23 @@
 
 			}
 		}
+
+		@media (min-width: 1025px){
+			.title{
+				font-size: 35px;
+			}
+			section > label{
+				font-size: 23px;
+			}
+			section select{
+				width: 230px !important;
+				height: 36px !important;
+			}
+			.grid-container > label{
+				font-size: 20px;
+			}
+			.grid-container > input[type=text]{
+				width: 170px !important;
+				height: 40px !important;
+			}
+		}

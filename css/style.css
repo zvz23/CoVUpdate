@@ -1,0 +1,70 @@
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: 'Roboto', sans-serif;
+		}
+		body{
+
+			background: rgb(205,200,200);
+			background: linear-gradient(34deg, rgba(205,200,200,1) 0%, rgba(235,235,235,1) 22%);
+		}
+
+		
+		.headlogo{
+			padding: 2.1rem 0 1rem;
+			display: block;
+			margin: 0 auto;
+		}
+		.title{
+			color: #EB5569;
+			font-size: 25px;
+			margin: 0 auto;
+			text-align: center;
+			padding-bottom: 2.1rem;
+		}
+		.m-container{
+			width: 100%;
+			height: 100vh;
+		}
+		section{
+			padding-bottom: 59px;
+		}
+		section > label{
+			font-size: 18px;
+			color: #EB5569;
+			display: block;
+			text-align: center;
+		}
+		section select{
+			display: block;
+			margin: 0 auto;
+			width: 225px !important;
+			height: 33px !important;
+			font-size: 1rem !important;
+			background-color: #EB5569 !important;
+			color: white !important;
+			border-radius: 7px !important;
+		}
+		.grid-container{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-row-gap: .5em;
+
+		}
+		.grid-container label:nth-of-type(1), .grid-container input[type=text]:nth-of-type(1){
+			display: none;
+		}
+		.grid-container > input[type=text]{
+			width: 143px !important;
+			height: 37px !important;
+			border-radius: 7px !important;
+			border: none;
+			background-color: #FFDDE2;
+			color: black !important;
+			font-size: 14px;
+		}
+		.grid-container > label{
+			font-size: 15px;
+			color: #EB5569;
+			padding-left: 1.5rem;
+		}

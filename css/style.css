@@ -106,6 +106,9 @@
 				margin-left: 3rem;
 
 			}
+			.cont{
+				font-size: 10px;
+			}
 		}
 
 		@media (min-width: 1025px){
@@ -128,5 +131,8 @@
 			}
 			.grid-container label:nth-of-type(1), .grid-container input[type=text]:nth-of-type(1){
 			display: block;
+			}
+			.cont{
+				font-size: 15px;
 			}
 		}

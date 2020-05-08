@@ -34,6 +34,26 @@ function addCountryToSelect(country){
 function initSelect(){
 	jsonFile.forEach(addCountryToSelect);
 }
+
+function isCountryExist(country){
+	return country.country === selectTag.value;
+}
+function findCountryIndex(){
+	return jsonFile.findIndex(isCountryExist);
+
+}
+function specificCountryURLFormat(countryName){
+	var format = "https://corona.lmao.ninja/v2/countries/"+countryName+"?yesterday=true&strict=true&query";
+	return format;
+}
+function loadSpecificCountry(event){
+	var countryIndex = findCountryIndex();
+	totalCases.value = jsonFile[countryIndex].cases;
+	newCases.value = jsonFile[countryIndex].todayCases;
+	recoveredCases.value = jsonFile[countryIndex].recovered;
+	totalDeaths.value = jsonFile[countryIndex].deaths;
+}
+selectTag.addEventListener("change", loadSpecificCountry)
 getJSON();
 
 

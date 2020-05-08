@@ -8,6 +8,11 @@
 			background: rgb(205,200,200);
 			background: linear-gradient(34deg, rgba(205,200,200,1) 0%, rgba(235,235,235,1) 22%);
 		}
+		.git{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
 
 		
 		.headlogo{
@@ -109,5 +114,8 @@
 			.grid-container > input[type=text]{
 				width: 170px !important;
 				height: 40px !important;
+			}
+			.grid-container label:nth-of-type(1), .grid-container input[type=text]:nth-of-type(1){
+			display: block;
 			}
 		}

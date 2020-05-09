@@ -51,6 +51,7 @@ function loadSpecificCountry(event){
 		
 	if(selectTag.value !== "Global"){
 		var countryIndex = findCountryIndex();
+		countryName.value = jsonFile[countryIndex].country;
 		totalCases.value = jsonFile[countryIndex].cases;
 		newCases.value = jsonFile[countryIndex].todayCases;
 		recoveredCases.value = jsonFile[countryIndex].recovered;
@@ -75,6 +76,7 @@ function loadGlobalJSON(){
 	}) 
 }
 function loadGlobalData(){
+	countryName.value = "Global";
 	totalCases.value = globalJSON.cases;
 	newCases.value = globalJSON.todayCases;
 	recoveredCases.value = globalJSON.recovered;

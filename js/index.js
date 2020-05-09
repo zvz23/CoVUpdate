@@ -5,6 +5,7 @@ var newCases = document.querySelector("#newCases");
 var recoveredCases = document.querySelector("#recoveredCases");
 var totalDeaths = document.querySelector("#totalDeaths");
 var jsonFile;
+var globalJSON;
 var opt;
 function getJSON(){
 	fetch("https://corona.lmao.ninja/v2/countries?yesterday&sort")
@@ -47,14 +48,45 @@ function specificCountryURLFormat(countryName){
 	return format;
 }
 function loadSpecificCountry(event){
-	var countryIndex = findCountryIndex();
-	totalCases.value = jsonFile[countryIndex].cases;
-	newCases.value = jsonFile[countryIndex].todayCases;
-	recoveredCases.value = jsonFile[countryIndex].recovered;
-	totalDeaths.value = jsonFile[countryIndex].deaths;
+		
+	if(selectTag.value !== "Global"){
+		var countryIndex = findCountryIndex();
+		totalCases.value = jsonFile[countryIndex].cases;
+		newCases.value = jsonFile[countryIndex].todayCases;
+		recoveredCases.value = jsonFile[countryIndex].recovered;
+		totalDeaths.value = jsonFile[countryIndex].deaths;
+	}
+	else{
+		loadGlobalData();
+	}
+	
 }
+function loadGlobalJSON(){
+	fetch("https://corona.lmao.ninja/v2/all?yesterday")
+	.then((response) =>{
+		return response.json();
+	})
+	.then((json) =>{
+		globalJSON = json;
+		loadGlobalData();
+	})
+	.catch((err)=>{
+		alert(err);
+	}) 
+}
+function loadGlobalData(){
+	totalCases.value = globalJSON.cases;
+	newCases.value = globalJSON.todayCases;
+	recoveredCases.value = globalJSON.recovered;
+	totalDeaths.value = globalJSON.deaths;
+}
+
+
 selectTag.addEventListener("change", loadSpecificCountry)
 getJSON();
+loadGlobalJSON();
+
+
 
 
 

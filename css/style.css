@@ -42,17 +42,52 @@
 		section{
 			padding-bottom: 59px;
 		}
-		section > label{
-			font-size: 18px;
-			color: #EB5569;
-			display: block;
-			text-align: center;
+		section button{
+			font-size: 15px !important;
+			color: #EB5569 !important;
+			width: 140px !important;
+			margin: 0 auto;
 		}
+		#toggleButton:hover{
+			background-color: #EB5569;
+			color: white !important;			
+		}
+		
+		#toggleButton:active, button:focus{
+			background-color: white;
+			color: #EB5569 !important;
+		}
+		.btn-search{
+			display: block;
+			margin: 0 auto;
+			color: white !important;
+			background-color: #EB5569 !important;
+		}
+		#searchButton, section > input[type=text]{
+			display: none;
+		}
+		#searchButton:active, #searchButton:focus, #searchButton{
+			color: white !important;
+		}
+		#searchInput{
+			margin-bottom: 8px;
+			margin-top: 5px;
+			background-color: #FFDDE2;
+
+		}
+		.o-w{
+			margin: 0 auto;
+			width: 225px !important;
+			border: none;
+			border-radius: 25px;
+		}
+		
 		section select{
 			display: block;
 			margin: 0 auto;
 			width: 225px !important;
 			height: 33px !important;
+			margin-top: 3px;
 			font-size: 1rem !important;
 			background-color: #EB5569 !important;
 			color: white !important;

@@ -37,7 +37,7 @@ function addCountryToSelect(country){
 }
 
 function toggleButtonEvent(event){
-	alert(event.textContent);
+	
 	if(event.textContent == "Search Country"){
 		event.textContent = "Select Country";
 		searchButton.style.display = "block";
@@ -107,6 +107,7 @@ function loadSearch(event){
 	else{
 		alert("Country not found or Country does not have COVID cases.");
 	}
+	
 }
 function loadGlobalJSON(){
 	fetch("https://corona.lmao.ninja/v2/all?yesterday")
@@ -133,12 +134,17 @@ toggleButton.addEventListener("click", function(event){
 	
 	if(this.textContent === "Search Country"){
 		this.textContent = "Select Country";
+		searchInput.value = "";
+		clearData();
 		searchButton.style.display = "block";
 		searchInput.style.display = "block";
 		countrySelect.style.display = "none";
 
+
 	}
 	else if(this.textContent === "Select Country"){
+		selectTag.options.selectedIndex = 0;
+		loadGlobalData();
 		searchInput.style.display = "none";
 		searchButton.style.display = "none";
 		countrySelect.style.display = "block";
@@ -146,8 +152,16 @@ toggleButton.addEventListener("click", function(event){
 
 	}
 });
+function clearData(){
+	countryName.value = "";
+	totalCases.value = "";
+	newCases.value = "";
+	recoveredCases.value = "";
+	totalDeaths.value = "";
+}
 
 searchButton.addEventListener("click", loadSearch)
+
 selectTag.addEventListener("change", loadSpecificCountry);
 getJSON();
 loadGlobalJSON();

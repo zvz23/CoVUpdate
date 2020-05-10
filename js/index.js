@@ -167,7 +167,6 @@ function clearData(){
 
 searchButton.addEventListener("click", loadSearch)
 searchInput.addEventListener("keyup", function(event){
-	console.log(event.keyCode);
 	if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 8){
 		try{
 			if(searchInput.value === ""){

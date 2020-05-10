@@ -187,8 +187,32 @@ function keyUpEvent(event){
 		clearData();
 	}
 }
+
+function inputEvent(event){
+	try{
+
+		if(event.target != ""){
+			if(searchInput.value === ""){
+				searchholder.value = "";
+			}
+			else{
+				var index = getIndexStartsWith();
+				searchholder.value = jsonFile[index].country;
+			}
+		}
+	}catch(TypeError){
+		searchholder.value = "";
+	}
+}
+function searchButtonClick(event){
+	if(event.keyCode === 13){
+		searchButton.click();
+	}
+}
 searchButton.addEventListener("click", loadSearch);
-searchInput.addEventListener("keyup", keyUpEvent);
+//searchInput.addEventListener("keyup", keyUpEvent);
+searchInput.addEventListener("input", inputEvent);
+searchInput.addEventListener("keyup", searchButtonClick);
 selectTag.addEventListener("change", loadSpecificCountry);
 getJSON();
 loadGlobalJSON();

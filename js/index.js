@@ -53,10 +53,12 @@ function toggleButtonEvent(event){
 
 	}
 }
+function getPrediction(country){
+	return country.country.startsWith(searchInput.value[0].toUpperCase()+searchInput.value.substring(1,));
+}
 function getIndexStartsWith(){
-	return jsonFile.findIndex(function(country){
-		return country.country.startsWith(searchInput.value[0].toUpperCase()+searchInput.value.substring(1,));
-	})
+	var index = jsonFile.findIndex(getPrediction);
+	return index;
 }
 function initSelect(){
 	jsonFile.forEach(addCountryToSelect);

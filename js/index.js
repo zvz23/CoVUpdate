@@ -70,7 +70,7 @@ function findCountryIndex(){
 
 }
 function isCountryExistInput(country){
-	return country.country === searchInput.value;
+	return country.country === searchholder.value;
 }
 function findCountryIndexInput(){
 	return jsonFile.findIndex(isCountryExistInput);
@@ -102,7 +102,7 @@ function loadSearch(event){
 	if(countryIndex === -1 && event.value === "Global"){
 		loadGlobalData();	
 	}
-	else if(countryIndex !== -1 && event.value !== "Global"){
+	else if(countryIndex !== -1 && event.value !== "Global" && searchholder.value != ""){
 		countryName.value = jsonFile[countryIndex].country;
 		totalCases.value = jsonFile[countryIndex].cases;
 		newCases.value = jsonFile[countryIndex].todayCases;

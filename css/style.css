@@ -67,12 +67,6 @@
 		#searchButton:active, #searchButton:focus, #searchButton{
 			color: white !important;
 		}
-		#searchInput{
-			margin-bottom: 8px;
-			margin-top: 5px;
-			background-color: #FFDDE2;
-
-		}
 		.div-search{
 			width: 225px !important;
 			border: none;

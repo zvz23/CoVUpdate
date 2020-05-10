@@ -165,16 +165,16 @@ function clearData(){
 	recoveredCases.value = "";
 	totalDeaths.value = "";
 }
-
-searchButton.addEventListener("click", loadSearch)
-searchInput.addEventListener("keyup", function(event){
+function keyUpEvent(event){
 	if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 8){
+		alert("there was an input");
 		try{
 			if(searchInput.value === ""){
 				searchholder.value = "";
 			}
 			else{
-				searchholder.value = jsonFile[getIndexStartsWith()].country;
+				var index = getIndexStartsWith();
+				searchholder.value = jsonFile[index].country;
 			}
 		}catch(TypeError){
 			searchholder.value = "";
@@ -187,7 +187,9 @@ searchInput.addEventListener("keyup", function(event){
 	else{
 		clearData();
 	}
-})
+}
+searchButton.addEventListener("click", loadSearch);
+searchInput.addEventListener("keyup", keyUpEvent);
 selectTag.addEventListener("change", loadSpecificCountry);
 getJSON();
 loadGlobalJSON();

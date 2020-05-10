@@ -166,7 +166,6 @@ function clearData(){
 	totalDeaths.value = "";
 }
 function keyUpEvent(event){
-	alert("there was an input");
 	if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 8){
 		try{
 			if(searchInput.value === ""){

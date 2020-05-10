@@ -54,7 +54,7 @@ function toggleButtonEvent(event){
 	}
 }
 function getIndexStartsWith(){
-	return jsonFile.findIndex((country) =>{
+	return jsonFile.findIndex(function(country){
 		return country.country.startsWith(searchInput.value[0].toUpperCase()+searchInput.value.substring(1,));
 	})
 }

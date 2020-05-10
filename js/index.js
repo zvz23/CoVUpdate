@@ -5,7 +5,10 @@ var newCases = document.querySelector("#newCases");
 var recoveredCases = document.querySelector("#recoveredCases");
 var totalDeaths = document.querySelector("#totalDeaths");
 var searchButton = document.querySelector("#searchButton");
-var searchInput = document.querySelector("#searchInput");
+var searchInput = document.querySelector("#searchh");
+var searchInputHolder = document.querySelector("#searchholder");
+
+var searchDIV = document.getElementsByClassName("div-search");
 var toggleButton = document.querySelector("#toggleButton");
 var jsonFile;
 var globalJSON;
@@ -40,18 +43,21 @@ function toggleButtonEvent(event){
 	
 	if(event.textContent == "Search Country"){
 		event.textContent = "Select Country";
-		searchButton.style.display = "block";
-		searchInput.style.display = "block";
+		searchDIV.style.display = "block";
 		countrySelect.style.display = "none";
 
 	}
 	else{
-		searchInput.style.display = "none";
-		searchButton.style.display = "none";
+		searchDIV.style.display = "none";
 		countrySelect.style.display = "block";
 		event.textContent = "Search Country";
 
 	}
+}
+function getIndexStartsWith(){
+	return jsonFile.findIndex((country) =>{
+		return country.country.startsWith(searchInput.value[0].toUpperCase()+searchInput.value.substring(1,));
+	})
 }
 function initSelect(){
 	jsonFile.forEach(addCountryToSelect);
@@ -136,8 +142,7 @@ toggleButton.addEventListener("click", function(event){
 		this.textContent = "Select Country";
 		searchInput.value = "";
 		clearData();
-		searchButton.style.display = "block";
-		searchInput.style.display = "block";
+		searchDIV[0].style.display = "block";
 		countrySelect.style.display = "none";
 
 
@@ -145,8 +150,8 @@ toggleButton.addEventListener("click", function(event){
 	else if(this.textContent === "Select Country"){
 		selectTag.options.selectedIndex = 0;
 		loadGlobalData();
-		searchInput.style.display = "none";
-		searchButton.style.display = "none";
+		searchholder.placeholder = "";
+		searchDIV[0].style.display = "none";
 		countrySelect.style.display = "block";
 		this.textContent = "Search Country";
 
@@ -161,11 +166,31 @@ function clearData(){
 }
 
 searchButton.addEventListener("click", loadSearch)
-
+searchInput.addEventListener("keyup", function(event){
+	console.log(event.keyCode);
+	if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 8){
+		try{
+			if(searchInput.value === ""){
+				searchholder.placeholder = "";
+			}
+			else{
+				searchholder.placeholder = jsonFile[getIndexStartsWith()].country;
+			}
+		}catch(TypeError){
+			searchholder.placeholder = "";
+		}
+	}
+	if(event.keyCode === 13 && searchholder.placeholder != ""){
+		searchInput.value = searchholder.placeholder;
+		searchButton.click();
+	}
+	else{
+		clearData();
+	}
+})
 selectTag.addEventListener("change", loadSpecificCountry);
 getJSON();
 loadGlobalJSON();
-
 
 
 

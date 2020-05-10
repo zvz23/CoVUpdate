@@ -63,9 +63,7 @@
 			color: white !important;
 			background-color: #EB5569 !important;
 		}
-		#searchButton, section > input[type=text]{
-			display: none;
-		}
+		
 		#searchButton:active, #searchButton:focus, #searchButton{
 			color: white !important;
 		}
@@ -73,6 +71,33 @@
 			margin-bottom: 8px;
 			margin-top: 5px;
 			background-color: #FFDDE2;
+
+		}
+		.div-search{
+			
+			width: 225px !important;
+			border: none;
+			position: relative;
+			margin: 0 auto;
+			display: none;
+
+		}
+		#searchh, #searchholder{
+			background-color: transparent;
+			width: 225px !important;
+			border: none;
+			border-radius: 25px;
+			display: block;
+		}
+		#searchh{
+			text-transform: capitalize;
+		}
+		#searchholder{
+			background-color: #FFDDE2;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
 
 		}
 		.o-w{

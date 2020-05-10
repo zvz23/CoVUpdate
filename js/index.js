@@ -7,7 +7,6 @@ var totalDeaths = document.querySelector("#totalDeaths");
 var searchButton = document.querySelector("#searchButton");
 var searchInput = document.querySelector("#searchh");
 var searchInputHolder = document.querySelector("#searchholder");
-
 var searchDIV = document.getElementsByClassName("div-search");
 var toggleButton = document.querySelector("#toggleButton");
 var jsonFile;
@@ -150,7 +149,7 @@ toggleButton.addEventListener("click", function(event){
 	else if(this.textContent === "Select Country"){
 		selectTag.options.selectedIndex = 0;
 		loadGlobalData();
-		searchholder.placeholder = "";
+		searchholder.value = "";
 		searchDIV[0].style.display = "none";
 		countrySelect.style.display = "block";
 		this.textContent = "Search Country";
@@ -170,17 +169,17 @@ searchInput.addEventListener("keyup", function(event){
 	if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 8){
 		try{
 			if(searchInput.value === ""){
-				searchholder.placeholder = "";
+				searchholder.value = "";
 			}
 			else{
-				searchholder.placeholder = jsonFile[getIndexStartsWith()].country;
+				searchholder.value = jsonFile[getIndexStartsWith()].country;
 			}
 		}catch(TypeError){
-			searchholder.placeholder = "";
+			searchholder.value = "";
 		}
 	}
-	if(event.keyCode === 13 && searchholder.placeholder != ""){
-		searchInput.value = searchholder.placeholder;
+	if(event.keyCode === 13 && searchholder.value != ""){
+		searchInput.value = searchholder.value;
 		searchButton.click();
 	}
 	else{

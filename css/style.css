@@ -74,10 +74,10 @@
 
 		}
 		.div-search{
-			
 			width: 225px !important;
 			border: none;
 			position: relative;
+			top: .5rem;
 			margin: 0 auto;
 			display: none;
 
@@ -95,7 +95,7 @@
 		#searchholder{
 			background-color: #FFDDE2;
 			color: #8e8e8e;
-			
+
 			position: absolute;
 			top: 0;
 			left: 0;

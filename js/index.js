@@ -165,33 +165,10 @@ function clearData(){
 	recoveredCases.value = "";
 	totalDeaths.value = "";
 }
-function keyUpEvent(event){
-	if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 8){
-		try{
-			if(searchInput.value === ""){
-				searchholder.value = "";
-			}
-			else{
-				var index = getIndexStartsWith();
-				searchholder.value = jsonFile[index].country;
-			}
-		}catch(TypeError){
-			searchholder.value = "";
-		}
-	}
-	if(event.keyCode === 13 && searchholder.value != ""){
-		searchInput.value = searchholder.value;
-		searchButton.click();
-	}
-	else{
-		clearData();
-	}
-}
 
 function inputEvent(event){
 	try{
-
-		if(event.target != ""){
+		if(event.target.value != ""){
 			if(searchInput.value === ""){
 				searchholder.value = "";
 			}
@@ -199,6 +176,10 @@ function inputEvent(event){
 				var index = getIndexStartsWith();
 				searchholder.value = jsonFile[index].country;
 			}
+		}
+		else{
+			searchholder.value = "";
+			clearData();
 		}
 	}catch(TypeError){
 		searchholder.value = "";
@@ -210,7 +191,6 @@ function searchButtonClick(event){
 	}
 }
 searchButton.addEventListener("click", loadSearch);
-//searchInput.addEventListener("keyup", keyUpEvent);
 searchInput.addEventListener("input", inputEvent);
 searchInput.addEventListener("keyup", searchButtonClick);
 selectTag.addEventListener("change", loadSpecificCountry);
